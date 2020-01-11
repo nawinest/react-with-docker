@@ -10,4 +10,4 @@ before_install:
   - docker build -t nawinest/reactjs-with-dockers -f Dockerfile.dev .
 
 script:
-  - docker run nawinest/reactjs-with-dockers npm run test -- --coverage
+  - docker run -e CI=true nawinest/reactjs-with-dockers npm run test
