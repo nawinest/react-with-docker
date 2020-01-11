@@ -11,3 +11,16 @@ before_install:
 
 script:
   - docker run -e CI=true nawinest/reactjs-with-dockers npm run test
+
+deploy:
+  edge: true
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "docker-reactjs"
+  env: "DockerReactjs-env"
+  bucket_name: "elasticbeanstalk-us-east-2-745749420732"
+  bucket_path: "docker-reactjs"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
